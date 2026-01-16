@@ -38,8 +38,8 @@ make EXTRAVERSION="-%{release}.%{_target_cpu}" LOCALVERSION= -j%{?_smp_build_ncp
 make EXTRAVERSION="-%{release}.%{_target_cpu}" LOCALVERSION= INSTALL_MOD_PATH=%{buildroot}/usr INSTALL_HDR_PATH=%{buildroot}/usr modules_install headers_install
 install -Dm644 arch/arm64/boot/dts/qcom/sdm845-oneplus-enchilada.dtb %{buildroot}%{_usr}/lib/modules/%{uname_r}/dtb/qcom/sdm845-oneplus-enchilada.dtb
 install -Dm644 arch/arm64/boot/dts/qcom/sdm845-oneplus-fajita.dtb %{buildroot}%{_usr}/lib/modules/%{uname_r}/dtb/qcom/sdm845-oneplus-fajita.dtb
-install -Dm644 arch/arm64/boot/dts/qcom/sdm845-oneplus-fajita.dtb %{buildroot}%{_usr}/lib/modules/%{uname_r}/dtb/qcom/sdm845-xiaomi-beryllium-ebbg.dtb
-install -Dm644 arch/arm64/boot/dts/qcom/sdm845-oneplus-fajita.dtb %{buildroot}%{_usr}/lib/modules/%{uname_r}/dtb/qcom/sdm845-xiaomi-beryllium-tianma.dtb
+install -Dm644 arch/arm64/boot/dts/qcom/sdm845-xiaomi-beryllium-ebbg.dtb %{buildroot}%{_usr}/lib/modules/%{uname_r}/dtb/qcom/sdm845-xiaomi-beryllium-ebbg.dtb
+install -Dm644 arch/arm64/boot/dts/qcom/sdm845-xiaomi-beryllium-tianma.dtb %{buildroot}%{_usr}/lib/modules/%{uname_r}/dtb/qcom/sdm845-xiaomi-beryllium-tianma.dtb
 install -Dm644 arch/arm64/boot/Image %{buildroot}/usr/lib/modules/%{uname_r}/vmlinuz
 install -Dm644 System.map            %{buildroot}/usr/lib/modules/%{uname_r}/System.map
 install -Dm644 .config               %{buildroot}/usr/lib/modules/%{uname_r}/config

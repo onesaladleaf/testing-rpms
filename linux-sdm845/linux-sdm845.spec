@@ -1,7 +1,7 @@
 %undefine        _debugsource_packages
 %global tag      6.16.7-r0
 Version:         6.16.7
-Release:         4.sdm845%{?dist}
+Release:         5.sdm845%{?dist}
 ExclusiveArch:   aarch64
 Name:            kernel
 Summary:         linux-sdm845 kernel
@@ -36,6 +36,10 @@ make EXTRAVERSION="-%{release}.%{_target_cpu}" LOCALVERSION= -j%{?_smp_build_ncp
 
 %install
 make EXTRAVERSION="-%{release}.%{_target_cpu}" LOCALVERSION= INSTALL_MOD_PATH=%{buildroot}/usr INSTALL_HDR_PATH=%{buildroot}/usr modules_install headers_install
+install -Dm644 arch/arm64/boot/dts/qcom/sdm845-oneplus-enchilada.dtb %{buildroot}%{_usr}/lib/modules/%{uname_r}/dtb/qcom/sdm845-oneplus-enchilada.dtb
+install -Dm644 arch/arm64/boot/dts/qcom/sdm845-oneplus-fajita.dtb %{buildroot}%{_usr}/lib/modules/%{uname_r}/dtb/qcom/sdm845-oneplus-fajita.dtb
+install -Dm644 arch/arm64/boot/dts/qcom/sdm845-oneplus-fajita.dtb %{buildroot}%{_usr}/lib/modules/%{uname_r}/dtb/qcom/sdm845-xiaomi-beryllium-ebbg.dtb
+install -Dm644 arch/arm64/boot/dts/qcom/sdm845-oneplus-fajita.dtb %{buildroot}%{_usr}/lib/modules/%{uname_r}/dtb/qcom/sdm845-xiaomi-beryllium-tianma.dtb
 install -Dm644 arch/arm64/boot/Image %{buildroot}/usr/lib/modules/%{uname_r}/vmlinuz
 install -Dm644 System.map            %{buildroot}/usr/lib/modules/%{uname_r}/System.map
 install -Dm644 .config               %{buildroot}/usr/lib/modules/%{uname_r}/config
@@ -53,5 +57,4 @@ dracut /usr/lib/modules/%{uname_r}/initramfs.img %{uname_r}
 kernel-install add %{uname_r} /usr/lib/modules/%{uname_r}/vmlinuz /usr/lib/modules/%{uname_r}/initramfs.img
 
 %changelog
-* Sun Sep 28 2025 gmanka 6.16.7
-- refactor spec
+%autochangelog

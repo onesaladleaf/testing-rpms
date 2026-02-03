@@ -21,6 +21,8 @@ BuildRequires:  lvm2-devel
 BuildRequires:  libblkid-devel
 BuildRequires:  systemd-rpm-macros
 
+%global debug_package %{nil}
+
 %description
 %{summary}
 

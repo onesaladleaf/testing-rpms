@@ -18,7 +18,7 @@ BuildRequires:  gcc
 BuildRequires:  make
 BuildRequires:  libmd-devel
 BuildRequires:  lvm2-devel
-BuildRequires:  util-linux
+BuildRequires:  libblkid-devel
 BuildRequires:  systemd-rpm-macros
 
 %description

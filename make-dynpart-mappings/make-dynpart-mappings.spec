@@ -4,7 +4,7 @@ Release:        %autorelease
 Summary:        A command-line tool that uses the device mapper to make block devices based on dynamic partitions
 URL:            https://gitlab.com/flamingradian/%{name}
 Source0:        %{url}/-/archive/%{version}/%{name}-%{version}.tar.gz
-# Source1:        %{name}.service
+Source1:        %{name}.service
 
 # exceptions:
 # 3rdparty/*: Apache-2.0
@@ -34,19 +34,19 @@ BuildRequires:  systemd-rpm-macros
 
 %install
 install -Dm755 %{name} -t %{buildroot}%{_bindir}
-# install -Dm644 %{SOURCE1} -t %{buildroot}%{_unitdir}
+install -Dm644 %{SOURCE1} -t %{buildroot}%{_unitdir}
 
-# %post
-# %systemd_post                %{name}.service
-# %preun
-# %systemd_preun               %{name}.service
-# %postun
-# %systemd_postun_with_restart %{name}.service
+%post
+%systemd_post                %{name}.service
+%preun
+%systemd_preun               %{name}.service
+%postun
+%systemd_postun_with_restart %{name}.service
 
 %files
 # %license LICENSE
 %{_bindir}/%{name}
-# %{_unitdir}/%{name}.service
+%{_unitdir}/%{name}.service
 
 %changelog
 %autochangelog
